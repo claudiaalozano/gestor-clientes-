@@ -1,4 +1,5 @@
 import os
+import helpers
 
 def iniciar():
     while True:
@@ -33,3 +34,5 @@ def iniciar():
             break
 
         input("\nPresiona ENTER para continuar...\n")
+
+        helpers.limpiar_pantalla()
