@@ -17,10 +17,10 @@ import config
 class TestDatabase(unittest.TestCase):
 
     def setUp(self):
-        db.Cliente.lista =  [
- db.Cliente('15J', 'Marta', 'Pérez'),
- db.Cliente('48H', 'Manolo', 'López'),
- db.Cliente('28Z', 'Ana', 'García')
+        db.Clientes.lista =  [
+ db.Clientes('15J', 'Marta', 'Pérez'),
+ db.Clientes('48H', 'Manolo', 'López'),
+ db.Clientes('28Z', 'Ana', 'García')
  ]
 
     def test_buscar_cliente(self):
@@ -45,7 +45,7 @@ class TestDatabase(unittest.TestCase):
     def test_borrar_cliente(self):
         cliente_borrado= db.Cliente.borrar("48H")
         cliente_rebuscado = db.Cliente.buscar("48H")
-        self.assertEqual(cliente_borrado, cliente_rebuscado)
+        self.assertFalse(cliente_borrado, cliente_rebuscado)
 
     def test_dni_valido(self):
         self.assertTrue(helpers.dni_valido('00A', db.Clientes.lista))
