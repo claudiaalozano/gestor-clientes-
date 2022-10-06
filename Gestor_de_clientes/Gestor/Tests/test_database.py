@@ -1,14 +1,17 @@
+
 import copy
 import unittest
 import sys
 import pathlib
-#sys.path.append(str(pathlib.Path(()).resolve(())) + "Gestor_de_clientes")
+import os
+
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
+
 #import database as db
 #from Gestor import *
 import csv
-from Gestor import *
-import Gestor.database as db
-import Gestor.helpers
+import database as db
+import helpers
 import config
 
 class TestDatabase(unittest.TestCase):
@@ -54,13 +57,13 @@ class TestDatabase(unittest.TestCase):
     def test_escritura_csv(self):
         db.Clientes.borrar('48H')
         db.Clientes.borrar('15J')
-        db.Clientes.modificar('28Z', 'Ana', 'Pérez')
+        db.Clientes.modificar('28Z', 'Mariana', 'Pérez')
         dni, nombre, apellido = None, None, None
         with open(config.DATABASE_PATH, newline="\n") as fichero:
             reader = csv.reader(fichero, delimiter=";")
             dni, nombre, apellido = next(reader) # Primera línea del iterador
         self.assertEqual(dni, '28Z')
-        self.assertEqual(nombre, 'Ana')
+        self.assertEqual(nombre, 'Mariana')
         self.assertEqual(apellido, 'Pérez')
 
 
