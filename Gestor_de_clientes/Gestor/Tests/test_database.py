@@ -4,11 +4,12 @@ import sys
 import pathlib
 #sys.path.append(str(pathlib.Path(()).resolve(())) + "Gestor_de_clientes")
 #import database as db
+#from Gestor import *
+import csv
+from Gestor import *
+import Gestor.database as db
 import Gestor.helpers
 import config
-import csv
-import Gestor_de_clientes.Gestor
-import Gestor.database as db
 
 class TestDatabase(unittest.TestCase):
 
