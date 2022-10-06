@@ -1,5 +1,7 @@
 import csv
 import config
+import sys
+import pathlib
 
 class Clientes:
 

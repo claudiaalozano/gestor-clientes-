@@ -1,5 +1,8 @@
 import copy
 import unittest
+import sys
+import pathlib
+sys.path.append(str(pathlib.Path(()).resolve(())) + "Gestor_de_clientes")
 import database as db 
 import helpers
 import config
